@@ -109,7 +109,7 @@
 
         return computerMove;
       }
-      localStorage.setItem("score", JSON.stringify(score));
+      
       function resetScore() {
         score.LOSS = 0;
         score.TIE = 0;
@@ -120,6 +120,7 @@
         LOSS: 0,
         TIE: 0,
       };
+      localStorage.setItem("score", JSON.stringify(score));
     </script>
   </body>
 </html>
