@@ -28,12 +28,11 @@
       body {
         background-color: black;
       }
-      .resetbutt
-      {
+      .resetbutt {
         height: 30px;
         width: 700px;
         background-color: rgb(255, 84, 84);
-        font-family: 'Trebuchet MS';
+        font-family: "Trebuchet MS";
         font-size: 25px;
         margin-top: 50px;
       }
@@ -47,11 +46,10 @@
       <button class="buttons" onclick="playGame('paper')">Paper</button>
 
       <button class="buttons" onclick="playGame('scissors')">Scissors</button>
-      <br><br>
-      
+      <br /><br />
     </div>
     <div class="btn-container">
-    <button class="resetbutt" onclick="resetScore()">RESET SCORE</button>
+      <button class="resetbutt" onclick="resetScore()">RESET SCORE</button>
     </div>
     <script>
       function playGame(playerMove) {
@@ -84,16 +82,12 @@
             result = "You win.";
           }
         }
-        if(result==="Tie.")
-        {
-            score.TIE++;
-        }
-        else if(result === "You lose.")
-        {
-            score.LOSS++;
-        }
-        else{
-            score.WIN++;
+        if (result === "Tie.") {
+          score.TIE++;
+        } else if (result === "You lose.") {
+          score.LOSS++;
+        } else {
+          score.WIN++;
         }
         alert(
           `You picked ${playerMove}. Computer picked ${computerMove}. ${result}\n SCORE: WIN-${score.WIN} LOSS-${score.LOSS} TIE-${score.TIE}`,
@@ -115,19 +109,17 @@
 
         return computerMove;
       }
-      localStorage.setItem('score' , JSON.stringify(score));
-      function resetScore()
-      {
+      localStorage.setItem("score", JSON.stringify(score));
+      function resetScore() {
         score.LOSS = 0;
-        score.TIE =0;
-        score.WIN =0 ;
+        score.TIE = 0;
+        score.WIN = 0;
       }
-      const score = {
+      const score = JSON.parse(localStorage.getItem("score")) || {
         WIN: 0,
         LOSS: 0,
-        TIE: 0
-
-    }
+        TIE: 0,
+      };
     </script>
   </body>
 </html>
