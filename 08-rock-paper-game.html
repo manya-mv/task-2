@@ -49,7 +49,7 @@
       <br /><br />
     </div>
     <div class="btn-container">
-      <button class="resetbutt" onclick="resetScore()">RESET SCORE</button>
+      <button class="resetbutt" onclick="resetScore(); localStorage.removeItem('score')">RESET SCORE</button>
     </div>
     <script>
       function playGame(playerMove) {
