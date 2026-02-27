@@ -7,7 +7,14 @@
 </head>
 <body>
     <p>Youtube Subscribe button</p>
-    <button class="button1">Subscribe</button>
+    <button class="button1" onclick="subscribe()">Subscribe</button>
+    <p class="title">Amazon Shipping Calculator</p>
+    <p>Orders below 40$ = +10$ shipping</p>
+    <p>Orders above 40$ = Free shipping</p>
+    <input type="text" name="cost" id="cost" placeholder="Cost of order">  <button onclick="totalcost()">
+        Calculator
+    </button>
+    <p id="total">0$</p>
     <script>
         function subscribe()
         {
@@ -20,6 +27,18 @@
         else
         {
             button1.innerHTML = 'Subscribe';
+        }
+        }
+        function totalcost()
+        {
+            const inputElement = document.querySelector('#cost');
+            let cost = (Number(inputElement.value))*100;
+            if((cost/100)>40)
+        {
+            document.querySelector('#total').innerHTML = cost/100 + '$';
+        }
+        else{
+            document.querySelector('#total').innerHTML = cost/100 + 10 + '$';
         }
         }
     </script>
