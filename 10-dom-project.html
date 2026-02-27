@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM PROJECT!</title>
+    <link rel="stylesheet" href="10-project.css">
 </head>
 <body>
     <p>Youtube Subscribe button</p>
@@ -11,7 +12,7 @@
     <p class="title">Amazon Shipping Calculator</p>
     <p>Orders below 40$ = +10$ shipping</p>
     <p>Orders above 40$ = Free shipping</p>
-    <input type="text" name="cost" id="cost" placeholder="Cost of order">  <button onclick="totalcost()">
+    <input type="text" name="cost" id="cost" placeholder="Cost of order" onkeydown="InputKeydown(event)">  <button class="button2" onclick="totalcost()" >
         Calculator
     </button>
     <p id="total">0$</p>
@@ -27,6 +28,15 @@
         else
         {
             button1.innerHTML = 'Subscribe';
+        }
+        }
+        function InputKeydown(event) {
+    if (event.key === 'Enter') {
+        totalcost();
+    }
+
+        else if(key === 'delete'){
+            document.querySelector('#total').innerHTML = "";
         }
         }
         function totalcost()

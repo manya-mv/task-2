@@ -1,0 +1,22 @@
+.title{
+    color: rgb(173, 244, 220);
+}
+body
+{
+    background-color: black;
+    color: whitesmoke;
+}
+.button2
+{
+    background-color: rgb(69, 224, 8);
+    width: 5vw;
+    height: 3vh;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid white;
+
+}
+#cost
+{
+    height: 3vh;
+}
