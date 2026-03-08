@@ -1,54 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-    <style>
-        h1{
-            color: blueviolet;
-        }
-        body{
-            background-color: rgb(64, 6, 64);
-        }
-        
-        button{
-            background-color: rgb(167, 126, 195);
-            margin:3px;
-            color: azure;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+
+<style>
+
+body{
+    background-color: rgb(64,6,64);
+    font-family: Arial;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.calculator{
+    background-color: rgb(35,3,35);
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
+
+h1{
+    color:blueviolet;
+    text-align:center;
+}
+
+.display{
+    width:100%;
+    height:50px;
+    margin-bottom:15px;
+    font-size:20px;
+    text-align:right;
+    padding:10px;
+    border:none;
+    border-radius:5px;
+}
+
+.buttons{
+    display:grid;
+    grid-template-columns: repeat(4,60px);
+    gap:10px;
+}
+
+button{
+    height:50px;
+    font-size:18px;
+    border:none;
+    border-radius:6px;
+    background-color:rgb(167,126,195);
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background-color:rgb(190,150,220);
+}
+
+.clear{
+    grid-column: span 4;
+    background-color:rgb(220,90,90);
+}
+
+</style>
 </head>
+
 <body>
-    <h1>Calculator</h1>
-    <div class="buttons"></div>
-    <button onclick="calc = calc + '1'; console.log(calc)">1</button>
-    <button onclick="calc = calc + '2'; console.log(calc)">2</button>
-    <button onclick="calc = calc + '3'; console.log(calc)">3</button>
-    <button onclick="calc = calc + ' + '; console.log(calc)">+</button>
-    <br>
-    <button onclick="calc = calc + '4'; console.log(calc)">4</button>
-    <button onclick="calc = calc + '5'; console.log(calc)">5</button>
-    <button onclick="calc = calc + '6'; console.log(calc)">6</button>
-    <button onclick="calc = calc + ' - '; console.log(calc)">-</button>
-    <br>
-    <button onclick="calc = calc + '7'; console.log(calc)">7</button>
-    <button onclick="calc = calc + '8'; console.log(calc)">8</button>
-    <button onclick="calc = calc + '9'; console.log(calc)">9</button>
-    <button onclick="calc = calc + ' * '; console.log(calc)">*</button>
-    <br>
-    <button onclick="calc = calc + '0'; console.log(calc)">0</button>
-    <button onclick="calc = calc + '.'; console.log(calc)"> . </button>
-    <button
-    onclick = "
-    const result = eval(calc);
-    console.log(' = ' , result)">=</button>
-    <button onclick="calc = calc + ' / '; console.log(calc)">/</button>
-    <br>
-    <button onclick = "calc=''">Clear</button>
-    <script>
-        let calc = '';
-    </script>
+
+<div class="calculator">
+
+<h1>Calculator</h1>
+
+<input class="display" id="display" readonly>
+
+<div class="buttons">
+
+<button onclick="append('1')">1</button>
+<button onclick="append('2')">2</button>
+<button onclick="append('3')">3</button>
+<button onclick="append('+')">+</button>
+
+<button onclick="append('4')">4</button>
+<button onclick="append('5')">5</button>
+<button onclick="append('6')">6</button>
+<button onclick="append('-')">-</button>
+
+<button onclick="append('7')">7</button>
+<button onclick="append('8')">8</button>
+<button onclick="append('9')">9</button>
+<button onclick="append('*')">*</button>
+
+<button onclick="append('0')">0</button>
+<button onclick="append('.')">.</button>
+<button onclick="calculate()">=</button>
+<button onclick="append('/')">/</button>
+
+<button class="clear" onclick="clearDisplay()">Clear</button>
+
+</div>
+</div>
+
+<script>
+
+let calc = '';
+
+function append(value){
+    calc += value;
+    document.getElementById("display").value = calc;
+}
+
+function calculate(){
+    try{
+        calc = eval(calc);
+        document.getElementById("display").value = calc;
+    }
+    catch{
+        document.getElementById("display").value = "Error";
+    }
+}
+
+function clearDisplay(){
+    calc = '';
+    document.getElementById("display").value = '';
+}
+
+</script>
 
 </body>
 </html>
